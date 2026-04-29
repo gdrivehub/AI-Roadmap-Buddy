@@ -1,0 +1,31 @@
+version: v1
+services:
+  - name: ai-roadmap-api
+    type: web
+    instance_type: nano
+    regions:
+      - was
+    git:
+      repository: github.com/YOUR_USERNAME/ai-roadmap-generator
+      branch: main
+      build_command: cd server && npm ci
+      run_command: cd server && npm start
+    ports:
+      - port: 5000
+        protocol: http
+    env:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "5000"
+      - key: OPENROUTER_API_KEY
+        secret: openrouter-api-key
+      - key: MONGODB_URI
+        secret: mongodb-uri
+      - key: CLIENT_URL
+        value: https://your-frontend.vercel.app
+    health_checks:
+      - path: /health
+        port: 5000
+        initial_delay_seconds: 10
+        period_seconds: 30
