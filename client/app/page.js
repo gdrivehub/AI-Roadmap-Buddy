@@ -67,7 +67,7 @@ export default function HomePage() {
         <div className="mb-8 inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 animate-fade-in">
           <div className="w-2 h-2 rounded-full bg-sage animate-pulse-slow" />
           <span className="text-xs font-mono text-mist tracking-widest uppercase">
-            Powered by OpenRouter AI
+            Made by Saurav R
           </span>
         </div>
 
